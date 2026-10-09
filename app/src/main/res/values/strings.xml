@@ -1,3 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Omnitrix</string>
+    <string name="watch_face_name">Omnitrix</string>
+
+    <string name="cfg_style">Estilo</string>
+    <string name="style_classic">Classic</string>
+    <string name="style_ultimate">Ultimate</string>
+    <string name="style_omniverse">Omniverse</string>
+
+    <string name="cfg_theme">Tema</string>
+    <string name="theme_classic">Classic</string>
+    <string name="theme_ultimate">Ultimate</string>
+    <string name="theme_omniverse">Omniverse</string>
+
+    <string name="cfg_date">Fecha</string>
+    <string name="cfg_battery">Batería</string>
+
+    <string name="comp_left_label">Widget izquierdo</string>
+    <string name="comp_right_label">Widget derecho</string>
+    <string name="arc_tr_label">Barra superior derecha</string>
+    <string name="arc_br_label">Barra inferior derecha</string>
+    <string name="arc_bl_label">Barra inferior izquierda</string>
+    <string name="arc_tl_label">Barra superior izquierda</string>
+
+    <string name="cfg_font">Fuente de la hora</string>
+    <string name="font_orbitron">Orbitron</string>
+    <string name="font_oxanium">Oxanium</string>
+    <string name="font_rajdhani">Rajdhani</string>
+    <string name="font_chakra">Chakra Petch</string>
+    <string name="font_michroma">Michroma</string>
+    <string name="cfg_seconds">Segundos</string>
+
+    <string name="flavor_classic">Classic</string>
+    <string name="flavor_ultimate">Ultimate</string>
+    <string name="flavor_omniverse">Omniverse</string>
 </resources>
