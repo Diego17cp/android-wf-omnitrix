@@ -1,0 +1,3427 @@
+<?xml version="1.0"?>
+<WatchFace
+    height="450"
+    width="450">
+    <Metadata
+        key="CLOCK_TYPE"
+        value="DIGITAL" />
+    <Metadata
+        key="PREVIEW_TIME"
+        value="10:08:32" />
+    <UserConfigurations>
+        <ColorConfiguration
+            defaultValue="0"
+            displayName="cfg_theme"
+            id="themeColor"
+            screenReaderText="cfg_theme">
+            <ColorOption
+                colors="#4BED2A #257615 #B6EDAB"
+                displayName="theme_classic"
+                id="0" />
+            <ColorOption
+                colors="#DBF83E #6D7C1F #E7EDAB"
+                displayName="theme_ultimate"
+                id="1" />
+            <ColorOption
+                colors="#0BFF00 #057F00 #ABEDC1"
+                displayName="theme_omniverse"
+                id="2" />
+        </ColorConfiguration>
+        <ListConfiguration
+            defaultValue="0"
+            displayName="cfg_style"
+            id="omnitrixStyle"
+            screenReaderText="cfg_style">
+            <ListOption
+                displayName="style_classic"
+                id="0" />
+            <ListOption
+                displayName="style_ultimate"
+                id="1" />
+            <ListOption
+                displayName="style_omniverse"
+                id="2" />
+        </ListConfiguration>
+
+        <ListConfiguration
+            defaultValue="0"
+            displayName="cfg_font"
+            id="clockFont"
+            screenReaderText="cfg_font">
+            <ListOption
+                displayName="font_orbitron"
+                id="0" />
+            <ListOption
+                displayName="font_oxanium"
+                id="1" />
+            <ListOption
+                displayName="font_rajdhani"
+                id="2" />
+            <ListOption
+                displayName="font_chakra"
+                id="3" />
+            <ListOption
+                displayName="font_michroma"
+                id="4" />
+        </ListConfiguration>
+
+        <BooleanConfiguration
+            defaultValue="TRUE"
+            displayName="cfg_seconds"
+            id="showSeconds"
+            screenReaderText="cfg_seconds" />
+        <BooleanConfiguration
+            defaultValue="TRUE"
+            displayName="cfg_date"
+            id="showDate"
+            screenReaderText="cfg_date" />
+        <Flavors defaultValue="classic">
+            <Flavor
+                displayName="flavor_classic"
+                id="classic">
+                <Configuration
+                    id="omnitrixStyle"
+                    optionId="0" />
+                <Configuration
+                    id="themeColor"
+                    optionId="0" />
+            </Flavor>
+            <Flavor
+                displayName="flavor_ultimate"
+                id="ultimate">
+                <Configuration
+                    id="omnitrixStyle"
+                    optionId="1" />
+                <Configuration
+                    id="themeColor"
+                    optionId="1" />
+            </Flavor>
+            <Flavor
+                displayName="flavor_omniverse"
+                id="omniverse">
+                <Configuration
+                    id="omnitrixStyle"
+                    optionId="2" />
+                <Configuration
+                    id="themeColor"
+                    optionId="2" />
+            </Flavor>
+        </Flavors>
+    </UserConfigurations>
+
+    <Scene backgroundColor="#ff000000">
+        <BooleanConfiguration id="showDate">
+            <BooleanOption id="TRUE">
+                <PartText
+                    height="40"
+                    width="450"
+                    x="0"
+                    y="112">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="120" />
+                    <Text>
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="SYNC_TO_DEVICE"
+                            size="28">
+                            <Template>%s %d
+                                <Parameter expression="[DAY_OF_WEEK_S]" />
+                                <Parameter expression="[DAY]" />
+                            </Template>
+                        </Font>
+                    </Text>
+                </PartText>
+            </BooleanOption>
+        </BooleanConfiguration>
+        <Condition>
+            <Expressions>
+                <Expression name="f0_sec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "0" && [CONFIGURATION.showSeconds] == "TRUE"]]></Expression>
+                <Expression name="f0_nosec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "0" && [CONFIGURATION.showSeconds] == "FALSE"]]></Expression>
+                <Expression name="f1_sec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "1" && [CONFIGURATION.showSeconds] == "TRUE"]]></Expression>
+                <Expression name="f1_nosec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "1" && [CONFIGURATION.showSeconds] == "FALSE"]]></Expression>
+                <Expression name="f2_sec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "2" && [CONFIGURATION.showSeconds] == "TRUE"]]></Expression>
+                <Expression name="f2_nosec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "2" && [CONFIGURATION.showSeconds] == "FALSE"]]></Expression>
+                <Expression name="f3_sec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "3" && [CONFIGURATION.showSeconds] == "TRUE"]]></Expression>
+                <Expression name="f3_nosec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "3" && [CONFIGURATION.showSeconds] == "FALSE"]]></Expression>
+                <Expression name="f4_sec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "4" && [CONFIGURATION.showSeconds] == "TRUE"]]></Expression>
+                <Expression name="f4_nosec">
+                    <![CDATA[[CONFIGURATION.clockFont] == "4" && [CONFIGURATION.showSeconds] == "FALSE"]]></Expression>
+            </Expressions>
+            <Compare expression="f0_sec">
+                <DigitalClock
+                    height="104"
+                    width="450"
+                    x="0"
+                    y="152">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="END"
+                        format="h:mm"
+                        height="104"
+                        width="314"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="orbitron_medium"
+                            size="74" />
+                    </TimeText>
+                </DigitalClock>
+                <DigitalClock
+                    height="39"
+                    width="130"
+                    x="320"
+                    y="202">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="START"
+                        format="ss"
+                        height="39"
+                        width="130"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="orbitron_medium"
+                            size="28" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f0_nosec">
+                <DigitalClock
+                    height="104"
+                    width="450"
+                    x="0"
+                    y="152">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        format="h:mm"
+                        height="104"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="orbitron_medium"
+                            size="74" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f1_sec">
+                <DigitalClock
+                    height="126"
+                    width="450"
+                    x="0"
+                    y="141">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="END"
+                        format="h:mm"
+                        height="126"
+                        width="318"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="oxanium_medium"
+                            size="90" />
+                    </TimeText>
+                </DigitalClock>
+                <DigitalClock
+                    height="48"
+                    width="126"
+                    x="324"
+                    y="197">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="START"
+                        format="ss"
+                        height="48"
+                        width="126"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="oxanium_medium"
+                            size="34" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f1_nosec">
+                <DigitalClock
+                    height="126"
+                    width="450"
+                    x="0"
+                    y="141">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        format="h:mm"
+                        height="126"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="oxanium_medium"
+                            size="90" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f2_sec">
+                <DigitalClock
+                    height="151"
+                    width="450"
+                    x="0"
+                    y="128">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="END"
+                        format="h:mm"
+                        height="151"
+                        width="314"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="rajdhani_medium"
+                            size="108" />
+                    </TimeText>
+                </DigitalClock>
+                <DigitalClock
+                    height="56"
+                    width="130"
+                    x="320"
+                    y="196">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="START"
+                        format="ss"
+                        height="56"
+                        width="130"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="rajdhani_medium"
+                            size="40" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f2_nosec">
+                <DigitalClock
+                    height="151"
+                    width="450"
+                    x="0"
+                    y="128">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        format="h:mm"
+                        height="151"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="rajdhani_medium"
+                            size="108" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f3_sec">
+                <DigitalClock
+                    height="129"
+                    width="450"
+                    x="0"
+                    y="140">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="END"
+                        format="h:mm"
+                        height="129"
+                        width="314"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="chakra_petch_medium"
+                            size="92" />
+                    </TimeText>
+                </DigitalClock>
+                <DigitalClock
+                    height="49"
+                    width="130"
+                    x="320"
+                    y="199">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="START"
+                        format="ss"
+                        height="49"
+                        width="130"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="chakra_petch_medium"
+                            size="35" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f3_nosec">
+                <DigitalClock
+                    height="129"
+                    width="450"
+                    x="0"
+                    y="140">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        format="h:mm"
+                        height="129"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="chakra_petch_medium"
+                            size="92" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f4_sec">
+                <DigitalClock
+                    height="80"
+                    width="450"
+                    x="0"
+                    y="164">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="END"
+                        format="h:mm"
+                        height="80"
+                        width="316"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="michroma"
+                            size="57" />
+                    </TimeText>
+                </DigitalClock>
+                <DigitalClock
+                    height="31"
+                    width="128"
+                    x="322"
+                    y="204">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        align="START"
+                        format="ss"
+                        height="31"
+                        width="128"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="michroma"
+                            size="22" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f4_nosec">
+                <DigitalClock
+                    height="80"
+                    width="450"
+                    x="0"
+                    y="164">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <TimeText
+                        format="h:mm"
+                        height="80"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="michroma"
+                            size="57" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+        </Condition>
+        <PartDraw
+            name="arc_tracks"
+            height="450"
+            width="450"
+            x="0"
+            y="0">
+            <Variant
+                mode="AMBIENT"
+                target="alpha"
+                value="0" />
+            <Arc
+                centerX="225"
+                centerY="225"
+                endAngle="68"
+                height="424"
+                startAngle="20"
+                width="424">
+                <Stroke
+                    color="[CONFIGURATION.themeColor.1]"
+                    dashIntervals="4 8"
+                    thickness="22" />
+            </Arc>
+            <Arc
+                centerX="225"
+                centerY="225"
+                endAngle="160"
+                height="424"
+                startAngle="112"
+                width="424">
+                <Stroke
+                    cap="ROUND"
+                    color="[CONFIGURATION.themeColor.1]"
+                    thickness="22" />
+            </Arc>
+            <Arc
+                centerX="225"
+                centerY="225"
+                endAngle="248"
+                height="424"
+                startAngle="200"
+                width="424">
+                <Stroke
+                    color="[CONFIGURATION.themeColor.1]"
+                    dashIntervals="4 8"
+                    thickness="22" />
+            </Arc>
+            <Arc
+                centerX="225"
+                centerY="225"
+                endAngle="340"
+                height="424"
+                startAngle="292"
+                width="424">
+                <Stroke
+                    cap="ROUND"
+                    color="[CONFIGURATION.themeColor.1]"
+                    thickness="22" />
+            </Arc>
+        </PartDraw>
+        <ComplicationSlot
+            name="arc_tr"
+            displayName="arc_tr_label"
+            height="450"
+            slotId="2"
+            supportedTypes="RANGED_VALUE GOAL_PROGRESS SHORT_TEXT EMPTY"
+            width="450"
+            x="0"
+            y="0">
+            <DefaultProviderPolicy
+                defaultSystemProvider="WATCH_BATTERY"
+                defaultSystemProviderType="RANGED_VALUE" />
+            <BoundingArc
+                centerX="225"
+                centerY="225"
+                endAngle="94"
+                height="450"
+                outlinePadding="2"
+                startAngle="0"
+                thickness="80"
+                width="450" />
+            <Complication type="RANGED_VALUE">
+                <Group
+                    name="arc_tr_ranged_value"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="20"
+                            height="424"
+                            startAngle="20"
+                            width="424">
+                            <Stroke
+                                color="[CONFIGURATION.themeColor.0]"
+                                dashIntervals="4 8"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="20 + 48 * clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="248"
+                                y="2">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="390"
+                                y="174">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="390"
+                                y="174">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.RANGED_VALUE_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="GOAL_PROGRESS">
+                <Group
+                    name="arc_tr_goal_progress"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="20"
+                            height="424"
+                            startAngle="20"
+                            width="424">
+                            <Stroke
+                                color="[CONFIGURATION.themeColor.0]"
+                                dashIntervals="4 8"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="20 + 48 * clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="248"
+                                y="2">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="390"
+                                y="174">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="390"
+                                y="174">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.GOAL_PROGRESS_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="SHORT_TEXT">
+                <Group
+                    name="arc_tr_short_text"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="248"
+                                y="2">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <PartText
+                        height="28"
+                        width="60"
+                        x="390"
+                        y="174">
+                        <Text ellipsis="TRUE">
+                            <Font
+                                color="[CONFIGURATION.themeColor.2]"
+                                family="SYNC_TO_DEVICE"
+                                size="22">
+                                <Template><![CDATA[%s]]>
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Group>
+            </Complication>
+        </ComplicationSlot>
+        <ComplicationSlot
+            name="arc_br"
+            displayName="arc_br_label"
+            height="450"
+            slotId="3"
+            supportedTypes="RANGED_VALUE GOAL_PROGRESS SHORT_TEXT EMPTY"
+            width="450"
+            x="0"
+            y="0">
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="EMPTY" />
+            <BoundingArc
+                centerX="225"
+                centerY="225"
+                endAngle="184"
+                height="450"
+                outlinePadding="2"
+                startAngle="86"
+                thickness="80"
+                width="450" />
+            <Complication type="RANGED_VALUE">
+                <Group
+                    name="arc_br_ranged_value"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="112"
+                            height="424"
+                            startAngle="112"
+                            width="424">
+                            <Stroke
+                                cap="ROUND"
+                                color="[CONFIGURATION.themeColor.0]"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="112 + 48 * clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="420"
+                                y="248">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="232"
+                                y="420">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="232"
+                                y="420">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.RANGED_VALUE_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="GOAL_PROGRESS">
+                <Group
+                    name="arc_br_goal_progress"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="112"
+                            height="424"
+                            startAngle="112"
+                            width="424">
+                            <Stroke
+                                cap="ROUND"
+                                color="[CONFIGURATION.themeColor.0]"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="112 + 48 * clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="420"
+                                y="248">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="232"
+                                y="420">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="232"
+                                y="420">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.GOAL_PROGRESS_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="SHORT_TEXT">
+                <Group
+                    name="arc_br_short_text"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="420"
+                                y="248">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <PartText
+                        height="28"
+                        width="60"
+                        x="232"
+                        y="420">
+                        <Text ellipsis="TRUE">
+                            <Font
+                                color="[CONFIGURATION.themeColor.2]"
+                                family="SYNC_TO_DEVICE"
+                                size="22">
+                                <Template><![CDATA[%s]]>
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Group>
+            </Complication>
+        </ComplicationSlot>
+        <ComplicationSlot
+            name="arc_bl"
+            displayName="arc_bl_label"
+            height="450"
+            slotId="4"
+            supportedTypes="RANGED_VALUE GOAL_PROGRESS SHORT_TEXT EMPTY"
+            width="450"
+            x="0"
+            y="0">
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="EMPTY" />
+            <BoundingArc
+                centerX="225"
+                centerY="225"
+                endAngle="274"
+                height="450"
+                outlinePadding="2"
+                startAngle="176"
+                thickness="80"
+                width="450" />
+            <Complication type="RANGED_VALUE">
+                <Group
+                    name="arc_bl_ranged_value"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="200"
+                            height="424"
+                            startAngle="200"
+                            width="424">
+                            <Stroke
+                                color="[CONFIGURATION.themeColor.0]"
+                                dashIntervals="4 8"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="200 + 48 * clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="174"
+                                y="420">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="2"
+                                y="248">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="2"
+                                y="248">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.RANGED_VALUE_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="GOAL_PROGRESS">
+                <Group
+                    name="arc_bl_goal_progress"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="200"
+                            height="424"
+                            startAngle="200"
+                            width="424">
+                            <Stroke
+                                color="[CONFIGURATION.themeColor.0]"
+                                dashIntervals="4 8"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="200 + 48 * clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="174"
+                                y="420">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="2"
+                                y="248">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="2"
+                                y="248">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.GOAL_PROGRESS_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="SHORT_TEXT">
+                <Group
+                    name="arc_bl_short_text"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="174"
+                                y="420">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <PartText
+                        height="28"
+                        width="60"
+                        x="2"
+                        y="248">
+                        <Text ellipsis="TRUE">
+                            <Font
+                                color="[CONFIGURATION.themeColor.2]"
+                                family="SYNC_TO_DEVICE"
+                                size="22">
+                                <Template><![CDATA[%s]]>
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Group>
+            </Complication>
+        </ComplicationSlot>
+        <ComplicationSlot
+            name="arc_tl"
+            displayName="arc_tl_label"
+            height="450"
+            slotId="5"
+            supportedTypes="RANGED_VALUE GOAL_PROGRESS SHORT_TEXT EMPTY"
+            width="450"
+            x="0"
+            y="0">
+            <DefaultProviderPolicy
+                defaultSystemProvider="EMPTY"
+                defaultSystemProviderType="EMPTY" />
+            <BoundingArc
+                centerX="225"
+                centerY="225"
+                endAngle="360"
+                height="450"
+                outlinePadding="2"
+                startAngle="266"
+                thickness="80"
+                width="450" />
+            <Complication type="RANGED_VALUE">
+                <Group
+                    name="arc_tl_ranged_value"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="292"
+                            height="424"
+                            startAngle="292"
+                            width="424">
+                            <Stroke
+                                cap="ROUND"
+                                color="[CONFIGURATION.themeColor.0]"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="292 + 48 * clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="2"
+                                y="174">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="158"
+                                y="2">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="158"
+                                y="2">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.RANGED_VALUE_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="GOAL_PROGRESS">
+                <Group
+                    name="arc_tl_goal_progress"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="450"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Arc
+                            centerX="225"
+                            centerY="225"
+                            endAngle="292"
+                            height="424"
+                            startAngle="292"
+                            width="424">
+                            <Stroke
+                                cap="ROUND"
+                                color="[CONFIGURATION.themeColor.0]"
+                                thickness="22" />
+                            <Transform
+                                target="endAngle"
+                                value="292 + 48 * clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)" />
+                        </Arc>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="2"
+                                y="174">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="158"
+                                y="2">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="28"
+                                width="60"
+                                x="158"
+                                y="2">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="22">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.GOAL_PROGRESS_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="SHORT_TEXT">
+                <Group
+                    name="arc_tl_short_text"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="28"
+                                tintColor="[CONFIGURATION.themeColor.2]"
+                                width="28"
+                                x="2"
+                                y="174">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <PartText
+                        height="28"
+                        width="60"
+                        x="158"
+                        y="2">
+                        <Text ellipsis="TRUE">
+                            <Font
+                                color="[CONFIGURATION.themeColor.2]"
+                                family="SYNC_TO_DEVICE"
+                                size="22">
+                                <Template><![CDATA[%s]]>
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Group>
+            </Complication>
+        </ComplicationSlot>
+        <ComplicationSlot
+            name="comp_left"
+            displayName="comp_left_label"
+            height="90"
+            slotId="0"
+            supportedTypes="RANGED_VALUE GOAL_PROGRESS SHORT_TEXT MONOCHROMATIC_IMAGE EMPTY"
+            width="122"
+            x="98"
+            y="266">
+            <DefaultProviderPolicy
+                defaultSystemProvider="STEP_COUNT"
+                defaultSystemProviderType="SHORT_TEXT" />
+            <BoundingBox
+                height="90"
+                outlinePadding="2"
+                width="122"
+                x="0"
+                y="0" />
+            <Complication type="RANGED_VALUE">
+                <Group
+                    name="comp_left_ranged_value"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                        <RoundRectangle
+                            cornerRadiusX="2"
+                            cornerRadiusY="2"
+                            height="5"
+                            width="98"
+                            x="12"
+                            y="78">
+                            <Fill color="#ff333833" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="comp_left_r_1">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 1]]></Expression>
+                            <Expression name="comp_left_r_2">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 2]]></Expression>
+                            <Expression name="comp_left_r_3">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 3]]></Expression>
+                            <Expression name="comp_left_r_4">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 4]]></Expression>
+                            <Expression name="comp_left_r_5">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 5]]></Expression>
+                            <Expression name="comp_left_r_6">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 6]]></Expression>
+                            <Expression name="comp_left_r_7">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 7]]></Expression>
+                            <Expression name="comp_left_r_8">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 8]]></Expression>
+                            <Expression name="comp_left_r_9">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 9]]></Expression>
+                            <Expression name="comp_left_r_10">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 10]]></Expression>
+                        </Expressions>
+                        <Compare expression="comp_left_r_1">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="9.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_2">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="19.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_3">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="29.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_4">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="39.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_5">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="49.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_6">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="58.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_7">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="68.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_8">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="78.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_9">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="88.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_r_10">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="98.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="24"
+                                tintColor="[CONFIGURATION.themeColor.1]"
+                                width="24"
+                                x="10"
+                                y="10">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.RANGED_VALUE_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="GOAL_PROGRESS">
+                <Group
+                    name="comp_left_goal_progress"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                        <RoundRectangle
+                            cornerRadiusX="2"
+                            cornerRadiusY="2"
+                            height="5"
+                            width="98"
+                            x="12"
+                            y="78">
+                            <Fill color="#ff333833" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="comp_left_g_1">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 1]]></Expression>
+                            <Expression name="comp_left_g_2">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 2]]></Expression>
+                            <Expression name="comp_left_g_3">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 3]]></Expression>
+                            <Expression name="comp_left_g_4">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 4]]></Expression>
+                            <Expression name="comp_left_g_5">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 5]]></Expression>
+                            <Expression name="comp_left_g_6">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 6]]></Expression>
+                            <Expression name="comp_left_g_7">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 7]]></Expression>
+                            <Expression name="comp_left_g_8">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 8]]></Expression>
+                            <Expression name="comp_left_g_9">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 9]]></Expression>
+                            <Expression name="comp_left_g_10">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 10]]></Expression>
+                        </Expressions>
+                        <Compare expression="comp_left_g_1">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="9.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_2">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="19.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_3">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="29.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_4">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="39.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_5">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="49.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_6">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="58.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_7">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="68.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_8">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="78.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_9">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="88.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_left_g_10">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="98.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="24"
+                                tintColor="[CONFIGURATION.themeColor.1]"
+                                width="24"
+                                x="10"
+                                y="10">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.GOAL_PROGRESS_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="SHORT_TEXT">
+                <Group
+                    name="comp_left_short_text"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="24"
+                                tintColor="[CONFIGURATION.themeColor.1]"
+                                width="24"
+                                x="10"
+                                y="10">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <PartText
+                        height="36"
+                        width="106"
+                        x="8"
+                        y="36">
+                        <Text ellipsis="TRUE">
+                            <Font
+                                color="[CONFIGURATION.themeColor.2]"
+                                family="SYNC_TO_DEVICE"
+                                size="26">
+                                <Template><![CDATA[%s]]>
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Group>
+            </Complication>
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <Group
+                    name="comp_left_monochromatic_image"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <PartImage
+                        height="48"
+                        tintColor="[CONFIGURATION.themeColor.2]"
+                        width="48"
+                        x="37"
+                        y="21">
+                        <ImageFilters>
+                            <HsbFilter saturate="0" />
+                        </ImageFilters>
+                        <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                    </PartImage>
+                </Group>
+            </Complication>
+        </ComplicationSlot>
+
+        <ComplicationSlot
+            name="comp_right"
+            displayName="comp_right_label"
+            height="90"
+            slotId="1"
+            supportedTypes="RANGED_VALUE GOAL_PROGRESS SHORT_TEXT MONOCHROMATIC_IMAGE EMPTY"
+            width="122"
+            x="230"
+            y="266">
+            <DefaultProviderPolicy
+                defaultSystemProvider="HEART_RATE"
+                defaultSystemProviderType="SHORT_TEXT" />
+            <BoundingBox
+                height="90"
+                outlinePadding="2"
+                width="122"
+                x="0"
+                y="0" />
+            <Complication type="RANGED_VALUE">
+                <Group
+                    name="comp_right_ranged_value"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                        <RoundRectangle
+                            cornerRadiusX="2"
+                            cornerRadiusY="2"
+                            height="5"
+                            width="98"
+                            x="12"
+                            y="78">
+                            <Fill color="#ff333833" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="comp_right_r_1">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 1]]></Expression>
+                            <Expression name="comp_right_r_2">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 2]]></Expression>
+                            <Expression name="comp_right_r_3">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 3]]></Expression>
+                            <Expression name="comp_right_r_4">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 4]]></Expression>
+                            <Expression name="comp_right_r_5">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 5]]></Expression>
+                            <Expression name="comp_right_r_6">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 6]]></Expression>
+                            <Expression name="comp_right_r_7">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 7]]></Expression>
+                            <Expression name="comp_right_r_8">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 8]]></Expression>
+                            <Expression name="comp_right_r_9">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 9]]></Expression>
+                            <Expression name="comp_right_r_10">
+                                <![CDATA[round(clamp(([COMPLICATION.RANGED_VALUE_VALUE]-[COMPLICATION.RANGED_VALUE_MIN])/([COMPLICATION.RANGED_VALUE_MAX]-[COMPLICATION.RANGED_VALUE_MIN]),0,1)*10) == 10]]></Expression>
+                        </Expressions>
+                        <Compare expression="comp_right_r_1">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="9.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_2">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="19.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_3">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="29.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_4">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="39.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_5">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="49.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_6">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="58.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_7">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="68.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_8">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="78.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_9">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="88.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_r_10">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="98.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="24"
+                                tintColor="[CONFIGURATION.themeColor.1]"
+                                width="24"
+                                x="10"
+                                y="10">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.RANGED_VALUE_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="GOAL_PROGRESS">
+                <Group
+                    name="comp_right_goal_progress"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                        <RoundRectangle
+                            cornerRadiusX="2"
+                            cornerRadiusY="2"
+                            height="5"
+                            width="98"
+                            x="12"
+                            y="78">
+                            <Fill color="#ff333833" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="comp_right_g_1">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 1]]></Expression>
+                            <Expression name="comp_right_g_2">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 2]]></Expression>
+                            <Expression name="comp_right_g_3">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 3]]></Expression>
+                            <Expression name="comp_right_g_4">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 4]]></Expression>
+                            <Expression name="comp_right_g_5">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 5]]></Expression>
+                            <Expression name="comp_right_g_6">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 6]]></Expression>
+                            <Expression name="comp_right_g_7">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 7]]></Expression>
+                            <Expression name="comp_right_g_8">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 8]]></Expression>
+                            <Expression name="comp_right_g_9">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 9]]></Expression>
+                            <Expression name="comp_right_g_10">
+                                <![CDATA[round(clamp(([COMPLICATION.GOAL_PROGRESS_VALUE]-0)/([COMPLICATION.GOAL_PROGRESS_TARGET_VALUE]-0),0,1)*10) == 10]]></Expression>
+                        </Expressions>
+                        <Compare expression="comp_right_g_1">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="9.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_2">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="19.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_3">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="29.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_4">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="39.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_5">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="49.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_6">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="58.8"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_7">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="68.6"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_8">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="78.4"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_9">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="88.2"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                        <Compare expression="comp_right_g_10">
+                            <PartDraw
+                                height="90"
+                                width="122"
+                                x="0"
+                                y="0">
+                                <RoundRectangle
+                                    cornerRadiusX="2"
+                                    cornerRadiusY="2"
+                                    height="5"
+                                    width="98.0"
+                                    x="12"
+                                    y="78">
+                                    <Fill color="[CONFIGURATION.themeColor.1]" />
+                                </RoundRectangle>
+                            </PartDraw>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="24"
+                                tintColor="[CONFIGURATION.themeColor.1]"
+                                width="24"
+                                x="10"
+                                y="10">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_text">
+                                <![CDATA[[COMPLICATION.TEXT] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_text">
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template><![CDATA[%s]]>
+                                            <Parameter expression="[COMPLICATION.TEXT]" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Compare>
+                        <Default>
+                            <PartText
+                                height="36"
+                                width="106"
+                                x="8"
+                                y="36">
+                                <Text ellipsis="TRUE">
+                                    <Font
+                                        color="[CONFIGURATION.themeColor.2]"
+                                        family="SYNC_TO_DEVICE"
+                                        size="26">
+                                        <Template>%d
+                                            <Parameter expression="round([COMPLICATION.GOAL_PROGRESS_VALUE])" />
+                                        </Template>
+                                    </Font>
+                                </Text>
+                            </PartText>
+                        </Default>
+                    </Condition>
+                </Group>
+            </Complication>
+            <Complication type="SHORT_TEXT">
+                <Group
+                    name="comp_right_short_text"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <Condition>
+                        <Expressions>
+                            <Expression name="has_icon">
+                                <![CDATA[[COMPLICATION.MONOCHROMATIC_IMAGE] != null]]></Expression>
+                        </Expressions>
+                        <Compare expression="has_icon">
+                            <PartImage
+                                height="24"
+                                tintColor="[CONFIGURATION.themeColor.1]"
+                                width="24"
+                                x="10"
+                                y="10">
+                                <ImageFilters>
+                                    <HsbFilter saturate="0" />
+                                </ImageFilters>
+                                <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                            </PartImage>
+                        </Compare>
+                    </Condition>
+                    <PartText
+                        height="36"
+                        width="106"
+                        x="8"
+                        y="36">
+                        <Text ellipsis="TRUE">
+                            <Font
+                                color="[CONFIGURATION.themeColor.2]"
+                                family="SYNC_TO_DEVICE"
+                                size="26">
+                                <Template><![CDATA[%s]]>
+                                    <Parameter expression="[COMPLICATION.TEXT]" />
+                                </Template>
+                            </Font>
+                        </Text>
+                    </PartText>
+                </Group>
+            </Complication>
+            <Complication type="MONOCHROMATIC_IMAGE">
+                <Group
+                    name="comp_right_monochromatic_image"
+                    height="90"
+                    width="122"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <PartDraw
+                        height="90"
+                        width="122"
+                        x="0"
+                        y="0">
+                        <RoundRectangle
+                            cornerRadiusX="14"
+                            cornerRadiusY="14"
+                            height="90"
+                            width="122"
+                            x="0"
+                            y="0">
+                            <Fill color="#ff202420" />
+                        </RoundRectangle>
+                    </PartDraw>
+                    <PartImage
+                        height="48"
+                        tintColor="[CONFIGURATION.themeColor.2]"
+                        width="48"
+                        x="37"
+                        y="21">
+                        <ImageFilters>
+                            <HsbFilter saturate="0" />
+                        </ImageFilters>
+                        <Image resource="[COMPLICATION.MONOCHROMATIC_IMAGE]" />
+                    </PartImage>
+                </Group>
+            </Complication>
+        </ComplicationSlot>
+        <ListConfiguration id="omnitrixStyle">
+            <ListOption id="0">
+                <PartAnimatedImage
+                    name="dial_classic"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <AnimationController
+                        beforePlaying="FIRST_FRAME"
+                        play="TAP" />
+                    <SequenceImages frameRate="12">
+                        <Image resource="classic_00" />
+                        <Image resource="classic_01" />
+                        <Image resource="classic_02" />
+                        <Image resource="classic_03" />
+                        <Image resource="classic_04" />
+                        <Image resource="classic_05" />
+                    </SequenceImages>
+                </PartAnimatedImage>
+            </ListOption>
+            <ListOption id="1">
+                <PartAnimatedImage
+                    name="dial_ultimate"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <AnimationController
+                        beforePlaying="FIRST_FRAME"
+                        play="TAP" />
+                    <SequenceImages frameRate="12">
+                        <Image resource="ultimate_00" />
+                        <Image resource="ultimate_01" />
+                        <Image resource="ultimate_02" />
+                        <Image resource="ultimate_03" />
+                        <Image resource="ultimate_04" />
+                        <Image resource="ultimate_05" />
+                    </SequenceImages>
+                </PartAnimatedImage>
+            </ListOption>
+            <ListOption id="2">
+                <PartAnimatedImage
+                    name="dial_omniverse"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="0" />
+                    <AnimationController
+                        beforePlaying="FIRST_FRAME"
+                        play="TAP" />
+                    <SequenceImages frameRate="12">
+                        <Image resource="omniverse_00" />
+                        <Image resource="omniverse_01" />
+                        <Image resource="omniverse_02" />
+                        <Image resource="omniverse_03" />
+                        <Image resource="omniverse_04" />
+                        <Image resource="omniverse_05" />
+                    </SequenceImages>
+                </PartAnimatedImage>
+            </ListOption>
+        </ListConfiguration>
+        <Condition>
+            <Expressions>
+                <Expression name="f0_amb"><![CDATA[[CONFIGURATION.clockFont] == "0"]]></Expression>
+                <Expression name="f1_amb"><![CDATA[[CONFIGURATION.clockFont] == "1"]]></Expression>
+                <Expression name="f2_amb"><![CDATA[[CONFIGURATION.clockFont] == "2"]]></Expression>
+                <Expression name="f3_amb"><![CDATA[[CONFIGURATION.clockFont] == "3"]]></Expression>
+                <Expression name="f4_amb"><![CDATA[[CONFIGURATION.clockFont] == "4"]]></Expression>
+            </Expressions>
+            <Compare expression="f0_amb">
+                <DigitalClock
+                    alpha="0"
+                    height="87"
+                    width="450"
+                    x="0"
+                    y="168">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <TimeText
+                        format="h:mm"
+                        height="87"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="orbitron_medium"
+                            size="62" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f1_amb">
+                <DigitalClock
+                    alpha="0"
+                    height="106"
+                    width="450"
+                    x="0"
+                    y="159">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <TimeText
+                        format="h:mm"
+                        height="106"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="oxanium_medium"
+                            size="76" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f2_amb">
+                <DigitalClock
+                    alpha="0"
+                    height="132"
+                    width="450"
+                    x="0"
+                    y="146">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <TimeText
+                        format="h:mm"
+                        height="132"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="rajdhani_medium"
+                            size="94" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f3_amb">
+                <DigitalClock
+                    alpha="0"
+                    height="111"
+                    width="450"
+                    x="0"
+                    y="156">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <TimeText
+                        format="h:mm"
+                        height="111"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="chakra_petch_medium"
+                            size="79" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+            <Compare expression="f4_amb">
+                <DigitalClock
+                    alpha="0"
+                    height="67"
+                    width="450"
+                    x="0"
+                    y="178">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <TimeText
+                        format="h:mm"
+                        height="67"
+                        width="450"
+                        x="0"
+                        y="0">
+                        <Font
+                            color="[CONFIGURATION.themeColor.2]"
+                            family="michroma"
+                            size="48" />
+                    </TimeText>
+                </DigitalClock>
+            </Compare>
+        </Condition>
+        <Condition>
+            <Expressions>
+                <Expression name="s0"><![CDATA[[CONFIGURATION.omnitrixStyle] == "0"]]></Expression>
+                <Expression name="s1"><![CDATA[[CONFIGURATION.omnitrixStyle] == "1"]]></Expression>
+                <Expression name="s2"><![CDATA[[CONFIGURATION.omnitrixStyle] == "2"]]></Expression>
+            </Expressions>
+            <Compare expression="s0">
+                <PartDraw
+                    alpha="0"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <Line
+                        endX="105"
+                        endY="225"
+                        startX="75"
+                        startY="67">
+                        <Stroke
+                            cap="ROUND"
+                            color="#ff6A7152"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="75"
+                        endY="383"
+                        startX="105"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="#ff6A7152"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="345"
+                        endY="225"
+                        startX="375"
+                        startY="67">
+                        <Stroke
+                            cap="ROUND"
+                            color="#ff6A7152"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="375"
+                        endY="383"
+                        startX="345"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="#ff6A7152"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="94"
+                        endY="225"
+                        startX="64"
+                        startY="78">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="64"
+                        endY="372"
+                        startX="94"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="356"
+                        endY="225"
+                        startX="386"
+                        startY="78">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="386"
+                        endY="372"
+                        startX="356"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                </PartDraw>
+            </Compare>
+            <Compare expression="s1">
+                <PartDraw
+                    alpha="0"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <Line
+                        endX="105"
+                        endY="225"
+                        startX="75"
+                        startY="67">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="75"
+                        endY="383"
+                        startX="105"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="345"
+                        endY="225"
+                        startX="375"
+                        startY="67">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                    <Line
+                        endX="375"
+                        endY="383"
+                        startX="345"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="3" />
+                    </Line>
+                </PartDraw>
+            </Compare>
+            <Compare expression="s2">
+                <PartDraw
+                    alpha="0"
+                    height="450"
+                    width="450"
+                    x="0"
+                    y="0">
+                    <Variant
+                        mode="AMBIENT"
+                        target="alpha"
+                        value="255" />
+                    <Line
+                        endX="105"
+                        endY="225"
+                        startX="75"
+                        startY="72">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="7" />
+                    </Line>
+                    <Line
+                        endX="75"
+                        endY="378"
+                        startX="105"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="7" />
+                    </Line>
+                    <Line
+                        endX="345"
+                        endY="225"
+                        startX="375"
+                        startY="72">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="7" />
+                    </Line>
+                    <Line
+                        endX="375"
+                        endY="378"
+                        startX="345"
+                        startY="225">
+                        <Stroke
+                            cap="ROUND"
+                            color="[CONFIGURATION.themeColor.1]"
+                            thickness="7" />
+                    </Line>
+                </PartDraw>
+            </Compare>
+        </Condition>
+    </Scene>
+</WatchFace>
